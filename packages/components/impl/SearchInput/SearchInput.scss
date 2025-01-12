@@ -1,0 +1,52 @@
+/* Basic styling for a Headless UI Combobox-based search input. */
+
+.cc-searchinput-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 300px;
+  width: 100%;
+}
+
+.cc-searchinput {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db; /* Tailwind "gray-300" */
+  border-radius: 0.25rem;
+  outline: none;
+
+  &[data-focus] {
+    border-color: #3b82f6;      /* Tailwind "blue-500" */
+    background-color: #eff6ff; /* Tailwind "blue-50" */
+  }
+}
+
+.cc-searchinput-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.25rem;
+  background-color: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  z-index: 10;
+  width: 100%;
+}
+
+.cc-searchinput-option {
+  padding: 0.5rem;
+  cursor: pointer;
+
+  &[data-focus] {
+    background-color: #e0f2fe; /* Tailwind "sky-100" */
+  }
+
+  &[data-selected] {
+    background-color: #bae6fd; /* Tailwind "sky-200" */
+    font-weight: 600;
+  }
+
+  &[data-disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
