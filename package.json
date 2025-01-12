@@ -8,10 +8,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "engines": {
-    "node": ">= 18.20.0 <19.0.0",
-    "npm": ">= 10.7.0 < 11.0.0"
-  },
   "author": "Artsiom Marozau",
   "license": "ISC",
   "description": ""
