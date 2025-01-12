@@ -1,23 +1,50 @@
-.cc-checkbox-wrapper {
-  display: inline-flex;
-  align-items: center;
-}
-
-.cc-checkbox,
-.cc-checkbox-checked {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-/* Unchecked state */
 .cc-checkbox {
-  background-color: #d1d5db; /* e.g., Tailwind "gray-300" */
-  color: #000;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.m-checked {
+    background-color: #4caf50;
+    border-color: #4caf50;
+
+    & .cc-checkbox__indicator {
+      display: block;
+    }
+  }
+
+  &.m-unchecked {
+    background-color: #fff;
+    border-color: #ccc;
+
+    & .cc-checkbox__indicator {
+      display: none;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
+  }
+
+  &:hover {
+    border-color: #999;
+  }
 }
 
-/* Checked (on) state */
-.cc-checkbox-checked {
-  background-color: #3B82F6; /* Tailwind "blue-500" */
-  color: #fff;
+.cc-checkbox__indicator {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  mask: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMu/b3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA4bDEuNSAxLjVMMTYgMi42bC0xNC44IDE0LjktLjUuNSAxNS0xNiA2TDQuNSAxMi41bC0xLjUtMS41eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==') no-repeat center / contain;
 }

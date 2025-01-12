@@ -1,0 +1,17 @@
+.td-todo-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+
+  &__text {
+    margin-left: 10px;
+    font-size: 16px;
+    color: #333;
+    transition: color 0.2s, text-decoration 0.2s;
+
+    &.m-completed {
+      text-decoration: line-through;
+      color: #999;
+    }
+  }
+}

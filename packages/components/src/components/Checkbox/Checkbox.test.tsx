@@ -8,11 +8,6 @@ describe("Checkbox component", () => {
     expect(screen.getByText(/Checkbox/i)).toBeInTheDocument();
   });
 
-  test("renders with custom label", () => {
-    render(<Checkbox label="I agree" />);
-    expect(screen.getByText(/I agree/i)).toBeInTheDocument();
-  });
-
   test("calls onChange when clicked", () => {
     const handleChange = jest.fn();
     render(<Checkbox onChange={handleChange} />);

@@ -1,0 +1,30 @@
+.cc-layout {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s;
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  &.m-padding-small {
+    padding: 10px;
+  }
+
+  &.m-padding-medium {
+    padding: 20px;
+  }
+
+  &.m-padding-large {
+    padding: 30px;
+  }
+
+  &.m-border {
+    border: 1px solid #ddd;
+  }
+
+  &.m-place-center {
+
+  }
+}

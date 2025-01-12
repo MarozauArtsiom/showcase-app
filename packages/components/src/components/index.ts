@@ -7,8 +7,12 @@ export type { CheckboxProps } from './Checkbox/Checkbox';
 export { default as Input } from './Input/Input';
 export type { InputProps } from './Input/Input';
 
-export { default as List } from './List/List';
-export type { OptionAction, Option } from './List/List';
+export { default as Layout } from './Layout/Layout';
+export type { LayoutProps } from './Layout/Layout';
+
 
 export { default as SearchInput } from './SearchInput/SearchInput';
 export type { SearchItem, SearchInputProps } from './SearchInput/SearchInput';
+
+export { default as List } from './List/List'
+export type { ListProps } from './List/List'

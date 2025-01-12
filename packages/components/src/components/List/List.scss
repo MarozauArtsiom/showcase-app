@@ -1,73 +1,42 @@
-/* Minimal styling using data attributes for focus, selected, etc. */
-
-.cc-list-wrapper {
-  display: inline-block;
-  position: relative;
-}
-
-.cc-list-btn {
-  cursor: pointer;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid #d1d5db; /* e.g., Tailwind "gray-300" */
-  border-radius: 0.25rem;
-  outline: none;
-  background-color: #fff;
-
-  &[data-focus],
-  &[data-hover] {
-    background-color: #f3f4f6; /* Tailwind "gray-100" */
-  }
-}
-
-.cc-list-options {
-  margin-top: 0.25rem;
-  padding: 0.25rem 0;
-  border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
-  background-color: #fff;
-  position: absolute;
-  z-index: 10;
-  min-width: 100%;
-}
-
-.cc-list-option {
-  cursor: pointer;
-  /* Option row styling */
-  &[data-focus] {
-    background-color: #e0f2fe; /* Tailwind "sky-100" */
-  }
-  &[data-selected] {
-    background-color: #bae6fd; /* Tailwind "sky-200" */
-    font-weight: 600;
-  }
-  &[data-disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
-
-.cc-list-option__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* name on left, actions on right */
-  padding: 0.5rem 0.75rem;
-  width: 100%;
-}
-
-.cc-list-option__actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.cc-list-option__action-btn {
-  border: none;
-  background: none;
-  cursor: pointer;
+.cc-list {
+  list-style: none;
   padding: 0;
-  display: inline-flex;
-  align-items: center;
+  margin: 0;
 
-  &:hover {
-    opacity: 0.7;
+  &__item {
+    padding: 8px 4px;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    /* Apply a light gray background to even items */
+    &:nth-child(even) {
+      background-color: #f9f9f9; /* Light gray */
+    }
+
+    /* Optionally, apply a slightly different background to odd items */
+    &:nth-child(odd) {
+      background-color: #ffffff; /* White */
+    }
+
+    /* Hover effect for better interactivity */
+    &:hover {
+      background-color: #e6f7ff; /* Light blue on hover */
+    }
+  }
+
+  &.m-horizontal {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+      margin-right: 16px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

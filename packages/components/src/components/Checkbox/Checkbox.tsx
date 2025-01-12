@@ -1,28 +1,21 @@
-import { FC } from "react";
 import { Switch } from "@headlessui/react";
 import "./Checkbox.scss";
 
 export interface CheckboxProps {
   checked?: boolean;
   onChange?: (checked: boolean) => void;
-  label?: string;
 }
 
-const Checkbox: FC<CheckboxProps> = ({
-  checked = false,
-  onChange = () => {},
-  label = "Checkbox",
-}) => {
+const Checkbox: React.FC<CheckboxProps> = ({ checked, onChange }) => {
   return (
-    <div className="cc-checkbox-wrapper">
-      <Switch
-        checked={checked}
-        onChange={onChange}
-        className={checked ? "cc-checkbox-checked" : "cc-checkbox"}
-      >
-        {label}
-      </Switch>
-    </div>
+    <Switch
+      checked={checked}
+      onChange={onChange}
+      className={`cc-checkbox ${checked ? "m-checked" : "m-unchecked"}`}
+    >
+      <span className="sr-only"></span>
+      <span aria-hidden="true" className="cc-checkbox__indicator" />
+    </Switch>
   );
 };
 
