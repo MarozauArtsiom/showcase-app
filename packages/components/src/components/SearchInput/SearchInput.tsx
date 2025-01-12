@@ -30,11 +30,6 @@ export interface SearchInputProps {
   placeholder?: string;
 }
 
-/**
- * A stateless combo box for searching/filtering items.
- * Parent manages the "query" + "selectedItem" state, so this
- * component doesn't store anything internally.
- */
 const SearchInput: FC<SearchInputProps> = ({
   query,
   onQueryChange,
@@ -43,22 +38,13 @@ const SearchInput: FC<SearchInputProps> = ({
   onSelect,
   placeholder = "Search...",
 }) => {
-  // Filter items based on the current query
-  const filtered = useMemo(() => {
-    const lower = query.toLowerCase();
-    return items.filter((item) => item.name.toLowerCase().includes(lower));
-  }, [query, items]);
+  const filtered = items.filter((item) =>
+    item.name.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <div className="cc-searchinput-wrapper">
-      <Combobox
-        value={selectedItem}
-        onChange={onSelect}
-        onClose={() => {
-          // Optionally clear the query if needed, or do nothing
-        }}
-      >
-        {/* The text input portion */}
+      <Combobox value={selectedItem} onChange={onSelect}>
         <ComboboxInput
           aria-label="Search"
           displayValue={(item: SearchItem | null) => item?.name || query}
@@ -67,7 +53,6 @@ const SearchInput: FC<SearchInputProps> = ({
           className="cc-searchinput"
         />
 
-        {/* The dropdown with filtered items */}
         {filtered.length > 0 && (
           <ComboboxOptions anchor="bottom" className="cc-searchinput-options">
             {filtered.map((item) => (
