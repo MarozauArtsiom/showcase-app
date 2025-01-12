@@ -1,11 +1,11 @@
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from "react";
 import {
   Combobox,
   ComboboxInput,
   ComboboxOptions,
   ComboboxOption,
-} from '@headlessui/react';
-import './SearchInput.scss';
+} from "@headlessui/react";
+import "./SearchInput.scss";
 
 export interface SearchItem {
   id: string | number;
@@ -41,7 +41,7 @@ const SearchInput: FC<SearchInputProps> = ({
   items,
   selectedItem,
   onSelect,
-  placeholder = 'Search...',
+  placeholder = "Search...",
 }) => {
   // Filter items based on the current query
   const filtered = useMemo(() => {

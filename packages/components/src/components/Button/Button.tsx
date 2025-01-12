@@ -1,8 +1,8 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import "./Button.scss";
 import { Button } from "@headlessui/react";
 
-interface ButtonProps {
+export interface ButtonProps {
   children?: ReactNode;
   onClick?: () => void;
 }

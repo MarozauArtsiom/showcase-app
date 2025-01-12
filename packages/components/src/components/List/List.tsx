@@ -1,11 +1,11 @@
-import React, { FC, ReactNode, MouseEvent } from 'react';
+import { FC, ReactNode, MouseEvent } from "react";
 import {
   Listbox,
   ListboxButton,
   ListboxOptions,
   ListboxOption,
-} from '@headlessui/react';
-import './List.scss';
+} from "@headlessui/react";
+import "./List.scss";
 
 /**
  * Describes an individual action for a list option.
@@ -13,7 +13,7 @@ import './List.scss';
  * The `onClick` handler receives the associated option so that the action
  * can reference its `id` or `name`.
  */
-interface OptionAction {
+export interface OptionAction {
   icon: ReactNode;
   onClick: (option: Option) => void;
 }
@@ -28,7 +28,7 @@ export interface Option {
   actions?: OptionAction[];
 }
 
-interface ListProps {
+export interface ListProps {
   /**
    * The currently selected option (controlled).
    * If null or undefined, the placeholder is shown.
@@ -49,7 +49,7 @@ const List: FC<ListProps> = ({
   value,
   onChange,
   options,
-  placeholder = 'Select an option...',
+  placeholder = "Select an option...",
 }) => {
   // Click handler for an action icon. Prevents option selection.
   const handleActionClick = (

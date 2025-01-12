@@ -1,4 +1,4 @@
-import React, { FC, ComponentPropsWithoutRef } from "react";
+import { FC, ComponentPropsWithoutRef } from "react";
 import { Input as HeadlessInput } from "@headlessui/react";
 import "./Input.scss";
 
@@ -14,7 +14,7 @@ import "./Input.scss";
  *    [data-focus], [data-hover], [data-disabled], etc.
  * - Or switch to render props to manage those states in your JSX.
  */
-interface InputProps extends ComponentPropsWithoutRef<"input"> {
+export interface InputProps extends ComponentPropsWithoutRef<"input"> {
   // Add any custom props you'd like here
 }
 
