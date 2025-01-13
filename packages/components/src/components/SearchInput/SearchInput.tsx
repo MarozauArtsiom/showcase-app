@@ -54,7 +54,11 @@ const SearchInput: FC<SearchInputProps> = ({
         />
 
         {filtered.length > 0 && (
-          <ComboboxOptions anchor="bottom" className="cc-searchinput-options">
+          <ComboboxOptions
+            static
+            anchor="bottom"
+            className="cc-searchinput-options"
+          >
             {filtered.map((item) => (
               <ComboboxOption
                 key={item.id}

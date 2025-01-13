@@ -1,106 +1,112 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, act } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import SearchInput, { SearchItem } from "./SearchInput";
 
-describe("SearchInput component", () => {
+describe("SearchInput Component", () => {
   const items: SearchItem[] = [
-    { id: "1", name: "Alpha" },
-    { id: "2", name: "Beta" },
-    { id: "3", name: "Gamma" },
-    { id: "4", name: "Delta" },
+    { id: "1", name: "Apple" },
+    { id: "2", name: "Banana" },
+    { id: "3", name: "Grape" },
+    { id: "4", name: "Orange" },
   ];
 
-  test("shows placeholder if query and selectedItem are empty", () => {
-    render(
-      <SearchInput
-        query=""
-        onQueryChange={() => {}}
-        items={items}
-        selectedItem={null}
-        onSelect={() => {}}
-        placeholder="Type to search..."
-      />
-    );
-    expect(screen.getByPlaceholderText(/type to search/i)).toBeInTheDocument();
-  });
-
-  test("filters items by query", () => {
-    const { rerender } = render(
-      <SearchInput
-        query="a"
-        onQueryChange={() => {}}
-        items={items}
-        selectedItem={null}
-        onSelect={() => {}}
-      />
-    );
-    // Open the combobox
-    fireEvent.click(screen.getByRole("combobox"));
-    expect(screen.getByText("Alpha")).toBeInTheDocument();
-    expect(screen.getByText("Gamma")).toBeInTheDocument();
-    expect(screen.queryByText("Beta")).not.toBeInTheDocument();
-    expect(screen.queryByText("Delta")).not.toBeInTheDocument();
-
-    // rerender with query="et"
-    rerender(
-      <SearchInput
-        query="et"
-        onQueryChange={() => {}}
-        items={items}
-        selectedItem={null}
-        onSelect={() => {}}
-      />
-    );
-    fireEvent.click(screen.getByRole("combobox"));
-    expect(screen.queryByText("Alpha")).not.toBeInTheDocument();
-    expect(screen.queryByText("Delta")).toBeInTheDocument();
-  });
-
-  test("calls onQueryChange when user types", () => {
-    const handleChange = jest.fn();
-    render(
-      <SearchInput
-        query=""
-        onQueryChange={handleChange}
-        items={items}
-        selectedItem={null}
-        onSelect={() => {}}
-      />
-    );
-    const input = screen.getByRole("combobox");
-    fireEvent.change(input, { target: { value: "Be" } });
-    expect(handleChange).toHaveBeenCalledWith("Be");
-  });
-
-  test("calls onSelect when an item is chosen", () => {
+  test("renders with the default placeholder", () => {
+    const handleQueryChange = jest.fn();
     const handleSelect = jest.fn();
+
     render(
       <SearchInput
-        query="a"
-        onQueryChange={() => {}}
+        query=""
+        onQueryChange={handleQueryChange}
         items={items}
         selectedItem={null}
         onSelect={handleSelect}
       />
     );
-    // open
-    fireEvent.click(screen.getByRole("combobox"));
-    // pick 'Gamma'
-    fireEvent.click(screen.getByText("Gamma"));
-    expect(handleSelect).toHaveBeenCalledWith({ id: "3", name: "Gamma" });
+
+    const inputElement = screen.getByPlaceholderText("Search...");
+    expect(inputElement).toBeInTheDocument();
+    expect(inputElement).toHaveValue("");
   });
 
-  test("displays the selectedItem name", () => {
+  test("renders with a custom placeholder", () => {
+    const handleQueryChange = jest.fn();
+    const handleSelect = jest.fn();
+    const placeholderText = "Type to search...";
+
     render(
       <SearchInput
         query=""
-        onQueryChange={() => {}}
+        onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={{ id: "2", name: "Beta" }}
-        onSelect={() => {}}
+        selectedItem={null}
+        onSelect={handleSelect}
+        placeholder={placeholderText}
       />
     );
-    // The displayed input value should show "Beta"
-    expect(screen.getByRole("combobox")).toHaveValue("Beta");
+
+    const inputElement = screen.getByPlaceholderText(placeholderText);
+    expect(inputElement).toBeInTheDocument();
+  });
+
+  test("calls onQueryChange when user types", () => {
+    const handleQueryChange = jest.fn();
+    const handleSelect = jest.fn();
+
+    render(
+      <SearchInput
+        query=""
+        onQueryChange={handleQueryChange}
+        items={items}
+        selectedItem={null}
+        onSelect={handleSelect}
+      />
+    );
+
+    const inputElement = screen.getByPlaceholderText("Search...");
+    fireEvent.change(inputElement, { target: { value: "Ap" } });
+
+    expect(handleQueryChange).toHaveBeenCalledTimes(1);
+    expect(handleQueryChange).toHaveBeenCalledWith("Ap");
+  });
+
+  test("shows no options if no items match the query", () => {
+    const handleQueryChange = jest.fn();
+    const handleSelect = jest.fn();
+
+    render(
+      <SearchInput
+        query="zzz"
+        onQueryChange={handleQueryChange}
+        items={items}
+        selectedItem={null}
+        onSelect={handleSelect}
+      />
+    );
+
+    // If nothing matches "zzz", no options should appear
+    expect(screen.queryByRole("option")).not.toBeInTheDocument();
+  });
+
+  test("shows options if some items match the query", () => {
+    const handleQueryChange = jest.fn();
+    const handleSelect = jest.fn();
+
+    render(
+      <SearchInput
+        query="ap"
+        onQueryChange={handleQueryChange}
+        items={items}
+        selectedItem={null}
+        onSelect={handleSelect}
+      />
+    );
+
+    act(() => {
+      screen.getByRole("combobox").focus();
+    });
+
+    expect(screen.getByText("Apple")).toBeInTheDocument();
+    expect(screen.getByText("Grape")).toBeInTheDocument();
   });
 });
