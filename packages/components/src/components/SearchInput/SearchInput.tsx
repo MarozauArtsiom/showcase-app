@@ -19,12 +19,12 @@ export interface SearchInputProps {
   onQueryChange: (val: string) => void;
 
   /** Full list of items */
-  items: SearchItem[];
+  items?: SearchItem[];
 
   /** The item currently selected (controlled) */
-  selectedItem: SearchItem | null;
+  selectedItem?: SearchItem;
   /** Called when the user selects an item */
-  onSelect: (item: SearchItem) => void;
+  onSelect?: (item: SearchItem) => void;
 
   /** Placeholder text in the input */
   placeholder?: string;
@@ -38,7 +38,7 @@ const SearchInput: FC<SearchInputProps> = ({
   onSelect,
   placeholder = "Search...",
 }) => {
-  const filtered = items.filter((item) =>
+  const filtered = items?.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())
   );
 
@@ -53,7 +53,7 @@ const SearchInput: FC<SearchInputProps> = ({
           className="cc-searchinput"
         />
 
-        {filtered.length > 0 && (
+        {!!filtered?.length && (
           <ComboboxOptions
             static
             anchor="bottom"
