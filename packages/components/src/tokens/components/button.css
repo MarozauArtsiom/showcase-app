@@ -1,0 +1,12 @@
+:root {
+  --button-font-family: var(--font-family-base);
+  --button-font-size: var(--font-size-base);
+  --button-font-weight: var(--font-weight-bold);
+  --button-padding-vertical: var(--spacing-sm);
+  --button-padding-horizontal: var(--spacing-md);
+  --button-border-radius: 4px;
+  --button-background-color: var(--color-blue-500);
+  --button-text-color: var(--color-white);
+  --button-hover-background-color: var(--color-blue-600);
+  --button-focus-box-shadow: 0 0 0 3px var(--color-blue-focus-shadow);
+}

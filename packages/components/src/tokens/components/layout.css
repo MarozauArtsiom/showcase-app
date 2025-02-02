@@ -1,0 +1,9 @@
+:root {
+  --layout-border-radius: 8px;
+  --layout-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --layout-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --layout-padding-small: 10px;
+  --layout-padding-medium: 20px;
+  --layout-padding-large: 30px;
+  --layout-border-color: var(--color-gray-500);
+}

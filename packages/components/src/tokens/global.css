@@ -1,0 +1,40 @@
+/* src/tokens/global.css */
+:root {
+  /* COLORS */
+  --color-white: #fff;
+  --color-gray-100: #f9f9f9;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #ccc;
+  --color-gray-500: #ddd;
+  --color-gray-600: #eee;
+  --color-gray-hover: #999;
+
+  --color-green-500: #4caf50;
+  --color-blue-500:  #3b82f6;
+  --color-blue-50:   #eff6ff;
+  --color-blue-100:  #e6f7ff;
+  --color-blue-600:  #2563eb;
+  --color-sky-100:   #e0f2fe;
+  --color-sky-200:   #bae6fd;
+
+  --color-red-300: #dc2626;
+
+  --color-blue-focus-shadow: rgba(59, 130, 246, 0.5);
+  --color-green-focus-shadow: rgba(76, 175, 80, 0.5);
+  --color-red-focus: #b91c1c;
+
+  /* TYPOGRAPHY */
+  --font-family-base: 'Arial, sans-serif';
+  --font-size-base: 16px;
+  --font-size-small: 14px;
+  --font-size-large: 18px;
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+
+  /* SPACING */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}

@@ -10,3 +10,7 @@ export type { SearchItem, SearchInputProps } from './SearchInput/SearchInput';
 
 export { default as List } from './List/List'
 export type { ListProps } from './List/List'
+
+export { default as Button } from './Button/Button'
+export type { ButtonProps } from './Button/Button'
+

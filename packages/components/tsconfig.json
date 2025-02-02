@@ -10,7 +10,11 @@
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@tokens/*": ["./src/tokens/*"],
+      "@components/*": ["./src/components/*"],
+    },
   },
   "include": ["src/components/**/*"],
   "exclude": ["node_modules", "dist"]

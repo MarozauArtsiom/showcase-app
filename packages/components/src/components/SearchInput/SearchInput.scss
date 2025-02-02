@@ -1,52 +1,58 @@
-/* Basic styling for a Headless UI Combobox-based search input. */
+@import "@tokens/global.css";
+@import "@tokens/components/searchInput.css";
 
+/* Search Input Wrapper */
 .cc-searchinput-wrapper {
   position: relative;
   display: inline-block;
-  max-width: 300px;
+  max-width: var(--searchinput-max-width);
   width: 100%;
 }
 
+/* Search Input Field */
 .cc-searchinput {
   width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #d1d5db; /* Tailwind "gray-300" */
-  border-radius: 0.25rem;
+  padding: var(--input-padding);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
   outline: none;
-
-  &[data-focus] {
-    border-color: #3b82f6;      /* Tailwind "blue-500" */
-    background-color: #eff6ff; /* Tailwind "blue-50" */
-  }
 }
 
+/* Focused State */
+.cc-searchinput[data-focus] {
+  border-color: var(--color-blue-500);
+  background-color: var(--color-blue-50);
+}
+
+/* Options Dropdown */
 .cc-searchinput-options {
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 0.25rem;
-  background-color: #fff;
-  border: 1px solid #d1d5db;
-  border-radius: 0.25rem;
+  margin-top: var(--spacing-xs); /* Using a global spacing token */
+  background-color: var(--color-white);
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
   z-index: 10;
   width: 100%;
 }
 
+/* Individual Option */
 .cc-searchinput-option {
-  padding: 0.5rem;
+  padding: var(--input-padding);
   cursor: pointer;
+}
 
-  &[data-focus] {
-    background-color: #e0f2fe; /* Tailwind "sky-100" */
-  }
+.cc-searchinput-option[data-focus] {
+  background-color: var(--color-sky-100);
+}
 
-  &[data-selected] {
-    background-color: #bae6fd; /* Tailwind "sky-200" */
-    font-weight: 600;
-  }
+.cc-searchinput-option[data-selected] {
+  background-color: var(--color-sky-200);
+  font-weight: var(--font-weight-bold);
+}
 
-  &[data-disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+.cc-searchinput-option[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

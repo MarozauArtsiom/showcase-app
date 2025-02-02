@@ -19,7 +19,6 @@ describe("SearchInput Component", () => {
         query=""
         onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={null}
         onSelect={handleSelect}
       />
     );
@@ -39,7 +38,6 @@ describe("SearchInput Component", () => {
         query=""
         onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={null}
         onSelect={handleSelect}
         placeholder={placeholderText}
       />
@@ -58,7 +56,6 @@ describe("SearchInput Component", () => {
         query=""
         onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={null}
         onSelect={handleSelect}
       />
     );
@@ -79,7 +76,6 @@ describe("SearchInput Component", () => {
         query="zzz"
         onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={null}
         onSelect={handleSelect}
       />
     );
@@ -97,7 +93,6 @@ describe("SearchInput Component", () => {
         query="ap"
         onQueryChange={handleQueryChange}
         items={items}
-        selectedItem={null}
         onSelect={handleSelect}
       />
     );

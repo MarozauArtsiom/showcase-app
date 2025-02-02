@@ -1,0 +1,61 @@
+@import "@tokens/global.css";
+@import "@tokens/components/button.css";
+
+/* Button Base Styles */
+.cc-button {
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+  border: none;
+  border-radius: var(--button-border-radius);
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--button-hover-background-color);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--button-focus-box-shadow);
+  }
+
+  &.m-disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Variant: Primary */
+  &.m-primary {
+    // No overrides needed—default styling is primary.
+  }
+
+  /* Variant: Secondary */
+  &.m-secondary {
+    background-color: transparent;
+    border: 1px solid var(--button-background-color);
+    color: var(--button-background-color);
+
+    &:hover {
+      background-color: var(--button-background-color);
+      color: var(--button-text-color);
+    }
+  }
+
+  /* Variant: Danger */
+  &.m-danger {
+    background-color: var(--button-danger-background-color, var(--color-red-300));
+    color: var(--button-text-color);
+    border: none;
+
+    &:hover {
+      background-color: var(--button-danger-hover-background-color, var(--color-red-focus));
+    }
+  }
+}

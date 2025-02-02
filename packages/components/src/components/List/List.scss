@@ -1,42 +1,47 @@
+@import "@tokens/global.css";
+@import "@tokens/components/list.css";
+
+/* Base List Style */
 .cc-list {
   list-style: none;
   padding: 0;
   margin: 0;
+}
 
-  &__item {
-    padding: 8px 4px;
-    border-bottom: 1px solid #eee;
+/* List Item */
+.cc-list__item {
+  padding: var(--list-item-padding-vertical) var(--list-item-padding-horizontal);
+  border-bottom: 1px solid var(--color-gray-600);
+}
 
-    &:last-child {
-      border-bottom: none;
-    }
+.cc-list__item:last-child {
+  border-bottom: none;
+}
 
-    /* Apply a light gray background to even items */
-    &:nth-child(even) {
-      background-color: #f9f9f9; /* Light gray */
-    }
+/* Even/Odd Background Colors */
+.cc-list__item:nth-child(even) {
+  background-color: var(--color-gray-100);
+}
 
-    /* Optionally, apply a slightly different background to odd items */
-    &:nth-child(odd) {
-      background-color: #ffffff; /* White */
-    }
+.cc-list__item:nth-child(odd) {
+  background-color: var(--color-white);
+}
 
-    /* Hover effect for better interactivity */
-    &:hover {
-      background-color: #e6f7ff; /* Light blue on hover */
-    }
-  }
+/* Hover Effect */
+.cc-list__item:hover {
+  background-color: var(--color-blue-100);
+}
 
-  &.m-horizontal {
-    display: flex;
-    flex-direction: row;
+/* Horizontal List Variant */
+.cc-list.m-horizontal {
+  display: flex;
+  flex-direction: row;
+}
 
-    &__item {
-      margin-right: 16px;
+.cc-list.m-horizontal .cc-list__item {
+  margin-right: var(--list-horizontal-gap);
+}
 
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-  }
+.cc-list.m-horizontal .cc-list__item:last-child {
+  margin-right: 0;
 }

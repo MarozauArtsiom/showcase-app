@@ -1,0 +1,7 @@
+:root {
+  --checkbox-size: 20px;
+  --checkbox-border-width: 2px;
+  --checkbox-border-radius: 4px;
+  --checkbox-indicator-size: 14px;
+  --checkbox-focus-shadow: var(--color-green-focus-shadow);
+}

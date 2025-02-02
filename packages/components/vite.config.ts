@@ -38,5 +38,10 @@ export default defineConfig({
     },
     outDir: 'dist',
     sourcemap: true
+  },
+  resolve: {
+    alias: {
+      "@tokens": path.resolve(__dirname, 'src/tokens'),
+    }
   }
 })

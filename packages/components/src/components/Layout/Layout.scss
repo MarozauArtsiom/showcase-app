@@ -1,30 +1,34 @@
+@import "@tokens/global.css";
+@import "@tokens/components/layout.css";
+
+/* Layout Base Style */
 .cc-layout {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+  border-radius: var(--layout-border-radius);
+  box-shadow: var(--layout-shadow);
   transition: box-shadow 0.2s;
-
-  &:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  &.m-padding-small {
-    padding: 10px;
-  }
-
-  &.m-padding-medium {
-    padding: 20px;
-  }
-
-  &.m-padding-large {
-    padding: 30px;
-  }
-
-  &.m-border {
-    border: 1px solid #ddd;
-  }
-
-  &.m-place-center {
-
-  }
 }
+
+/* Hover Effect */
+.cc-layout:hover {
+  box-shadow: var(--layout-shadow-hover);
+}
+
+/* Padding Variants */
+.cc-layout.m-padding-small {
+  padding: var(--layout-padding-small);
+}
+
+.cc-layout.m-padding-medium {
+  padding: var(--layout-padding-medium);
+}
+
+.cc-layout.m-padding-large {
+  padding: var(--layout-padding-large);
+}
+
+/* Border Variant */
+.cc-layout.m-border {
+  border: 1px solid var(--layout-border-color);
+}
+

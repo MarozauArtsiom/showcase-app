@@ -1,7 +1,7 @@
 import { Button } from "@showcase-lab/components";
 
 function ButtonDefault() {
-  return <Button onClick={() => alert("clicked")}>Text in button</Button>;
+  return <Button onClick={() => alert("clicked")} label="Text in button" />;
 }
 
 export default [

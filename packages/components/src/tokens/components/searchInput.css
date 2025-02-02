@@ -1,0 +1,6 @@
+:root {
+  --searchinput-max-width: 300px;
+  --input-padding: 0.5rem;
+  --input-border-color: var(--color-gray-300);
+  --input-border-radius: 0.25rem;
+}

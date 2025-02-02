@@ -1,50 +1,58 @@
+@import "@tokens/global.css";
+@import "@tokens/components/checkbox.css";
+
+/* Checkbox Base Style */
 .cc-checkbox {
   appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border: 2px solid #ccc;
-  border-radius: 4px;
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  background-color: var(--color-white);
+  border: var(--checkbox-border-width) solid var(--color-gray-400);
+  border-radius: var(--checkbox-border-radius);
   position: relative;
   cursor: pointer;
   transition: background-color 0.2s, border-color 0.2s;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &.m-checked {
-    background-color: #4caf50;
-    border-color: #4caf50;
-
-    & .cc-checkbox__indicator {
-      display: block;
-    }
-  }
-
-  &.m-unchecked {
-    background-color: #fff;
-    border-color: #ccc;
-
-    & .cc-checkbox__indicator {
-      display: none;
-    }
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
-  }
-
-  &:hover {
-    border-color: #999;
-  }
 }
 
+/* Checked State */
+.cc-checkbox.m-checked {
+  background-color: var(--color-green-500);
+  border-color: var(--color-green-500);
+}
+
+.cc-checkbox.m-checked .cc-checkbox__indicator {
+  display: block;
+}
+
+/* Unchecked State */
+.cc-checkbox.m-unchecked {
+  background-color: var(--color-white);
+  border-color: var(--color-gray-400);
+}
+
+.cc-checkbox.m-unchecked .cc-checkbox__indicator {
+  display: none;
+}
+
+/* Focus & Hover */
+.cc-checkbox:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--checkbox-focus-shadow);
+}
+
+.cc-checkbox:hover {
+  border-color: var(--color-gray-hover);
+}
+
+/* Checkbox Indicator */
 .cc-checkbox__indicator {
   position: absolute;
-  width: 14px;
-  height: 14px;
-  background-color: #fff;
-  mask: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMu/b3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA4bDEuNSAxLjVMMTYgMi42bC0xNC44IDE0LjktLjUuNSAxNS0xNiA2TDQuNSAxMi41bC0xLjUtMS41eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==') no-repeat center / contain;
+  width: var(--checkbox-indicator-size);
+  height: var(--checkbox-indicator-size);
+  background-color: var(--color-white);
+  /* The following mask uses an SVG checkmark encoded in base64 */
+  mask: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMSA4bDEuNSAxLjVMMTYgMi42bC0xNC44IDE0LjktLjUuNSAxNS0xNiA2TDQuNSAxMi41bC0xLjUtMS41eiIgZmlsbD0iI0ZGRiIvPjwvc3ZnPg==') no-repeat center / contain;
 }
