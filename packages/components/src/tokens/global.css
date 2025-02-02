@@ -10,10 +10,14 @@
   --color-gray-hover: #999;
 
   --color-green-500: #4caf50;
-  --color-blue-500:  #3b82f6;
-  --color-blue-50:   #eff6ff;
-  --color-blue-100:  #e6f7ff;
-  --color-blue-600:  #2563eb;
+
+  --color-blue-500: #3b82f6;
+  --color-blue-50:  #eff6ff;
+  --color-blue-100: #e6f7ff;
+  --color-blue-600: #2563eb;
+  --color-blue-700: #1d4ed8;
+  --color-blue-800: #1e40af;
+
   --color-sky-100:   #e0f2fe;
   --color-sky-200:   #bae6fd;
 

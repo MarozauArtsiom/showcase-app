@@ -5,8 +5,13 @@
   --button-padding-vertical: var(--spacing-sm);
   --button-padding-horizontal: var(--spacing-md);
   --button-border-radius: 4px;
-  --button-background-color: var(--color-blue-500);
+
+  --button-background-color: var(--color-blue-700);
   --button-text-color: var(--color-white);
-  --button-hover-background-color: var(--color-blue-600);
-  --button-focus-box-shadow: 0 0 0 3px var(--color-blue-focus-shadow);
+  --button-hover-background-color: var(--color-blue-800);
+
+  --button-focus-box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  
+  --button-danger-background-color: #dc2626;
+  --button-danger-hover-background-color: #b91c1c;
 }
