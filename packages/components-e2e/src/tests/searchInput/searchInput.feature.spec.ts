@@ -1,6 +1,6 @@
-import { test, expect } from "@playwright/test";
+import { test, expect, Page } from "@playwright/test";
 
-async function getSearchInputOptionsCount(page) {
+async function getSearchInputOptionsCount(page: Page) {
     return await page.locator('.cc-searchinput-option').count()
 }
 
@@ -13,6 +13,7 @@ test.describe('SearchInput feature tests', () => {
         await input.fill('first');
         expect(await getSearchInputOptionsCount(page)).toBe(1);
 
+        await input.click();
         await input.fill('');
         expect(await getSearchInputOptionsCount(page)).toBe(3);
 

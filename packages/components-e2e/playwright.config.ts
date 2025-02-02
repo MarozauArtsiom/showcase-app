@@ -20,7 +20,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -35,20 +35,44 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'chromium::a11y',
       testMatch: [
         '**/*.a11y.spec.ts',
-        '**/*.feature.spec.ts',
-        '**/*.visual.spec.ts'
       ],
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1024, height: 720 } },
     },
     {
-      name: 'chromium-touch',
+      name: 'chromium::feature',
+      testMatch: [
+        '**/*.feature.spec.ts',
+      ],
+      use: { ...devices['Desktop Chrome'], viewport: { width: 1024, height: 720 } },
+    },
+    {
+      name: 'chromium::visual',
+      testMatch: [
+        '**/*.visual.spec.ts'
+      ],
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 1024, height: 720 },
+      },
+    },
+    {
+      name: 'chromium::touch',
       testMatch: '**/*.touch.spec.ts',
-      use: { ...devices['Pixel 8'], },
+      use: {
+        ...devices['Pixel 8'],
+        viewport: { width: 800, height: 600 },
+        hasTouch: true,
+      },
     },
   ],
+
+  expect: {
+    toMatchSnapshot: { maxDiffPixels: 100 },
+    toHaveScreenshot: { maxDiffPixels: 100 },
+  }
 
   /* Run your local dev server before starting the tests */
   // webServer: {

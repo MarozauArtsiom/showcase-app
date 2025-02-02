@@ -10,7 +10,10 @@ test.describe('SearchInput touch', () => {
             throw new Error("Can not find SearchInput");
         }
 
-        await page.touchscreen.tap(inputBox.x + inputBox.width / 2, inputBox.y + inputBox.height / 2);
+        await page.touchscreen.tap(
+            inputBox.x + inputBox.width / 2,
+            inputBox.y + inputBox.height / 2
+        );
 
         await page.keyboard.type('test');
 
