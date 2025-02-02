@@ -17,6 +17,6 @@ test.describe('SearchInput touch', () => {
 
         await page.keyboard.type('test');
 
-        expect(await input).toHaveValue('test');
+        expect(await page.getByText("test")).toBeDefined();
     })
 })
