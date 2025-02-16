@@ -80,7 +80,6 @@ describe("SearchInput Component", () => {
       />
     );
 
-    // If nothing matches "zzz", no options should appear
     expect(screen.queryByRole("option")).not.toBeInTheDocument();
   });
 

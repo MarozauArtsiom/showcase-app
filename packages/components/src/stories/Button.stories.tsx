@@ -1,13 +1,11 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { Button, ButtonProps } from "../components";
-// Adjust the import path as needed
 
 export default {
   title: "Components/Button",
   component: Button,
   argTypes: {
-    // Set up control types for props you’d like to modify in Storybook
     variant: {
       control: {
         type: "select",

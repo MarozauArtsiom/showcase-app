@@ -1,7 +1,6 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
 import { Checkbox, CheckboxProps } from "../components";
-// Adjust the import path to where your Checkbox component is located
 
 export default {
   title: "Components/Checkbox",
