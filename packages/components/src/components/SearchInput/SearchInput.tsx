@@ -1,4 +1,4 @@
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import {
   Combobox,
   ComboboxInput,
@@ -55,7 +55,7 @@ const SearchInput: FC<SearchInputProps> = ({
 
         {!!filtered?.length && (
           <ComboboxOptions
-            static
+            static={true}
             anchor="bottom"
             className="cc-searchinput-options"
           >

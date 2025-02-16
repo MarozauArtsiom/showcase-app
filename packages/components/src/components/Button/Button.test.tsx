@@ -4,7 +4,7 @@ import Button from "./Button";
 describe("Button Component", () => {
   test("renders with correct label", () => {
     render(<Button label="Click Me" />);
-    expect(screen.getByText("Click Me")).toBeInTheDocument();
+    expect(screen.getByText("Click Me")).toBeDefined();
   });
 
   test("calls onClick handler when clicked", () => {
@@ -15,12 +15,17 @@ describe("Button Component", () => {
   });
 
   test("is disabled when disabled prop is true", () => {
-    render(<Button label="Click Me" disabled />);
-    expect(screen.getByText("Click Me")).toBeDisabled();
+    render(<Button label="Click Me" disabled={true} />);
+    expect(
+      screen.getByText("Click Me").closest("button")?.getAttribute("disabled")
+    ).toBe("");
   });
 
   test("applies correct variant class", () => {
-    const { container } = render(<Button label="Click Me" variant="danger" />);
-    expect(container.firstChild).toHaveClass("m-danger");
+    render(<Button label="Click Me" variant="danger" />);
+    const button = screen.getByText("Click Me").closest("button");
+
+    expect(button).not.toBeNull();
+    expect(button!.getAttribute("class")).toContain("m-danger");
   });
 });
