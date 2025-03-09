@@ -1,5 +1,5 @@
 import "./App.css";
-import { Layout } from "@showcase-lab/components";
+import { Layout, Button } from "@showcase-lab/components";
 import { useState } from "react";
 import { ToDoList, ToDoItemType } from "./components";
 
@@ -33,6 +33,7 @@ const initialToDoItems: ToDoItemType[] = [
 
 function App() {
   const [toDoItems, setToDoItems] = useState<ToDoItemType[]>(initialToDoItems);
+  const [theme, setTheme] = useState<"white" | "dark">("white");
 
   const toggleItem = (id: number) => {
     setToDoItems((prevItems) =>
@@ -42,11 +43,24 @@ function App() {
     );
   };
 
+  const containerStyle: object = {
+    "--background-color":
+      theme === "white" ? "var(--color-white)" : "var(--color-grey-999)",
+  };
+
   return (
-    <Layout padding="large" border={true}>
-      <h1>My ToDo List</h1>
-      <ToDoList items={toDoItems} onToggle={toggleItem} />
-    </Layout>
+    <section style={containerStyle} className="app-body">
+      <Layout padding="large" border={true}>
+        <h1>My ToDo List</h1>
+        <Button
+          label={theme}
+          onClick={() =>
+            setTheme((theme) => (theme === "white" ? "dark" : "white"))
+          }
+        />
+        <ToDoList items={toDoItems} onToggle={toggleItem} />
+      </Layout>
+    </section>
   );
 }
 

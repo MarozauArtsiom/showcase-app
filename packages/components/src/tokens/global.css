@@ -7,6 +7,7 @@
   --color-gray-400: #ccc;
   --color-gray-500: #ddd;
   --color-gray-600: #eee;
+  --color-grey-999: #999;
   --color-gray-hover: #999;
 
   --color-green-500: #4caf50;
@@ -41,4 +42,8 @@
   --spacing-md: 16px;
   --spacing-lg: 24px;
   --spacing-xl: 32px;
+
+  /* THEME */
+  --background-color__white: var(--color-white);
+  --background-color__dark: var(--color-white);
 }
