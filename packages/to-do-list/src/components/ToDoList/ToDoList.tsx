@@ -10,7 +10,9 @@ export interface ToDoListProps {
 
 export const ToDoList: React.FC<ToDoListProps> = ({ items, onToggle }) => {
   const [query, setQuery] = useState("");
-  const [selectedItem, setSelectedItem] = useState<SearchItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<SearchItem | undefined>(
+    undefined
+  );
 
   const searchItems = items.map(({ id, text }) => ({ id, name: text }));
 
